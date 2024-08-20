@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">sakka H&amp;P</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_name">User Name</string>
+    <string name="search_here">Search here...</string>
+    <string name="categories_for_you">Categories for you...</string>
+    <string name="home">Home</string>
+    <string name="ImageCardForFlat">TODO</string>
+    <string name="flats">Flats</string>
+    <string name="rooms">Rooms</string>
+    <string name="best_deals_for_you">Best deals for you</string>
+    <string name="todo">TODO</string>
+    <string name="homeImage">TODO</string>
+    <string name="add_your_property">Add Your Property</string>
+    <string name="update_profile_picture">Update Profile Picture</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="back_button_to_go_back">Back Button to go back</string>
+    <string name="add_your_property1">Add Your Property</string>
+    <string name="enter_property_location">Enter Property Location</string>
+    <string name="enter_type_example_sell_or_rent">Enter Type, example Sell or rent</string>
+    <string name="enter_description_of_property">Enter Description of Property</string>
+    <string name="enter_title_for_your_property">Enter Title For Your Property</string>
+    <string name="enter_owner_name">Enter Owner Name</string>
+    <string name="enter_contact_no">Enter Contact no.</string>
+    <string name="enter_price">Enter Price</string>
+    <string name="enter_category_ex_home_villas_flats">Enter Category. Ex:- Home, Villas,Flats</string>
+    <string name="add_image">Add Image</string>
+    <string name="add_property">Add Property</string>
+    <string name="go_back">go_back</string>
+    <string name="uploaded_image">Uploaded Image</string>
+    <string name="welcome_to">Welcome To</string>
+    <string name="sakka_h_n_p">Sakka H N\' P</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="name_sign_up">Name</string>
+    <string name="_email_sign_up">Email</string>
+    <string name="password_sign_up">Password</string>
+    <string name="confirm_password_sin_up">Confirm Password</string>
+    <string name="button_sign_up">Sign Up</string>
+    <string name="already_have_an_account_login">Already have an account ? Login</string>
+    <string name="welcome_to_login">Welcome To</string>
+    <string name="sakka_hh">sakka HH</string>
+    <string name="login">Login</string>
+    <string name="email_login">Email</string>
+    <string name="password_login">Password</string>
+    <string name="text_login">Login</string>
+    <string name="property_location">Property Location</string>
+    <string name="apartment_title">Apartment</string>
+    <string name="property_image">property_image</string>
+    <string name="property_price">property_price</string>
+    <string name="don_t_have_an_account_create_account">Don\'t have an account ? Create Account</string>
+    <string name="_2_bedrooms_apartment">2 bedrooms Apartment</string>
+
+</resources>
