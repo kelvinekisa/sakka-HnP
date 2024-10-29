@@ -1,168 +1,263 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/dark_grey"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".screens.AddPropertyActivity">
 
-    <ImageButton
-        android:id="@+id/back_button"
-        android:layout_width="70dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="?android:attr/selectableItemBackground"
-        android:contentDescription="@string/go_back"
-        android:padding="8dp"
-        android:src="@drawable/back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/headings"
-        android:layout_width="377dp"
+    <!-- Top menu layout -->
+    <RelativeLayout
+        android:id="@+id/top_menu_add_property"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="@string/add_your_property1"
-        android:layout_below="@id/back_button"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:background="@color/material_dynamic_primary40">
+
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/saddka_h_p_add_property"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="11dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="150dp"/>
+
+        <TextView
+            android:id="@+id/realestate_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_property_page"
+            android:layout_below="@+id/welcome"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="150dp"/>
+
+        <ImageView
+            android:id="@+id/icon_image"
+            android:layout_width="81dp"
+            android:layout_height="86dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:src="@drawable/homelogo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fill_all_fields"
+            android:layout_below="@id/realestate_app"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
 
     <ScrollView
-        android:layout_width="395dp"
-        android:layout_below="@+id/headings"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/top_menu_add_property"
         android:fillViewport="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-
-                android:id="@+id/property_location"
+            <!-- Short description, type, and category layout -->
+            <LinearLayout
+                android:id="@+id/s_t_category"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/edit_bg"
-                android:gravity="center"
-                android:hint="@string/enter_property_location"
-                android:inputType="text" />
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/property_type"
+                <EditText
+                    android:id="@+id/property_shortdescription"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_weight="1"
+                    android:autofillHints="Mau Summit Villa, 4"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:background="@drawable/edit_bg"
+                    android:gravity="center"
+                    android:hint="@string/enter_title_for_your_property"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/property_type"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:background="@drawable/edit_bg"
+                    android:gravity="center"
+                    android:hint="@string/enter_type_example_sell_or_rent"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/property_category"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:background="@drawable/edit_bg"
+                    android:gravity="center"
+                    android:hint="@string/enter_category_ex_home_villas_flats"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <!-- Location and price layout -->
+            <LinearLayout
+                android:id="@+id/loc_price"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@+id/property_location"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
-                android:background="@drawable/edit_bg"
-                android:gravity="center"
-                android:hint="@string/enter_type_example_sell_or_rent"
-                android:inputType="text" />
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_below="@id/s_t_category"
+                android:orientation="horizontal">
 
+                <EditText
+                    android:id="@+id/property_location"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1.5"
+                    android:autofillHints="Dennis Pritt Road, Kilimani."
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:background="@drawable/edit_bg"
+                    android:gravity="center"
+                    android:hint="@string/enter_property_location"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/property_price"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:background="@drawable/edit_bg"
+                    android:gravity="center"
+                    android:hint="@string/enter_price"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <!-- Property description layout -->
             <EditText
                 android:id="@+id/property_description"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@+id/property_type"
+                android:layout_height="50dp"
                 android:layout_marginTop="28dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_below="@+id/loc_price"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 android:background="@drawable/edit_bg"
                 android:gravity="center"
                 android:hint="@string/enter_description_of_property"
                 android:inputType="text" />
 
-            <EditText
-                android:id="@+id/property_shortdescription"
+            <!-- Owner details layout -->
+            <LinearLayout
+                android:id="@+id/owner_detail_rl"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
                 android:layout_below="@+id/property_description"
-                android:layout_marginTop="28dp"
-                android:background="@drawable/edit_bg"
-                android:gravity="center"
-                android:hint="@string/enter_title_for_your_property"
-                android:inputType="text" />
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/property_ownername"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@+id/property_shortdescription"
-                android:layout_marginTop="28dp"
-                android:background="@drawable/edit_bg"
-                android:gravity="center"
-                android:hint="@string/enter_owner_name"
-                android:inputType="text" />
+                <EditText
+                    android:id="@+id/property_ownername"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginStart="3dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:background="@drawable/edit_bg"
+                    android:gravity="center"
+                    android:hint="@string/enter_owner_name"
+                    android:inputType="text" />
 
-            <EditText
-                android:id="@+id/property_contactno"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@+id/property_ownername"
-                android:layout_marginTop="28dp"
-                android:background="@drawable/edit_bg"
-                android:gravity="center"
-                android:hint="@string/enter_contact_no"
-                android:inputType="text" />
+                <EditText
+                    android:id="@+id/property_contactno"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginStart="1dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:background="@drawable/edit_bg"
+                    android:gravity="center"
+                    android:hint="@string/enter_contact_no"
+                    android:inputType="phone" />
+            </LinearLayout>
 
-
-            <EditText
-                android:id="@+id/property_price"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@+id/property_contactno"
-                android:layout_marginTop="28dp"
-                android:background="@drawable/edit_bg"
-                android:gravity="center"
-                android:hint="@string/enter_price"
-                android:inputType="text" />
-
-            <EditText
-                android:id="@+id/property_category"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@+id/property_price"
-                android:layout_marginTop="28dp"
-                android:background="@drawable/edit_bg"
-                android:gravity="center"
-                android:hint="@string/enter_category_ex_home_villas_flats"
-                android:inputType="text" />
-
-
-            <!-- Add EditTexts for other property details -->
-
+            <!-- Image view -->
             <ImageView
                 android:id="@+id/imageViewUploaded"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_below="@id/property_category"
+                android:layout_below="@id/owner_detail_rl"
                 android:contentDescription="@string/uploaded_image"
-                android:layout_marginTop="10dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/hom1"/>
-
-            <Button
-                android:id="@+id/buttonUploadImage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/imageViewUploaded"
+                android:src="@drawable/hom1"
                 android:layout_marginTop="10dp"
-                android:text="@string/add_image"
-                app:backgroundTint="@color/red" />
+                android:background="@drawable/edit_bg"/>
 
-            <Button
-                android:id="@+id/buttonSubmit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/buttonUploadImage"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/addproperty"
-                android:text="@string/add_property"
-                app:backgroundTint="@color/dark_orange" />
-
+            <!-- Buttons layout -->
+            <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_below="@id/imageViewUploaded"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:padding="15dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="match_parent">
+                            <Button
+                                android:id="@+id/buttonUploadImage"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginStart="15dp"
+                                android:padding="2dp"
+                                android:text="@string/add_image"
+                                app:backgroundTint="@color/dark_orange" />
+<!---->
+                            <Button
+                                android:id="@+id/buttonSubmit"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginStart="15dp"
+                                android:padding="2dp"
+                                android:background="@drawable/addproperty"
+                                android:text="@string/add_property"
+                                app:backgroundTint="@color/dark_orange" />
+<!---->
+                        </LinearLayout>
         </RelativeLayout>
     </ScrollView>
-
 </RelativeLayout>
+

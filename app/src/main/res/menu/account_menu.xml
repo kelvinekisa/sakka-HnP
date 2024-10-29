@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group android:checkableBehavior="single">
+        <item android:icon="@drawable/ic_home"
+            android:id="@+id/account_home"
+            android:title="Home"/>
+
+        <item android:icon="@drawable/baseline_real_estate_agent_24"
+            android:id="@+id/authorided_agent"
+            android:title="Authorised Agent"/>
+
+        <item android:icon="@drawable/baseline_chat_bubble_outline_24"
+            android:id="@+id/enquiries_account"
+            android:title="Enquiries"/>
+
+        <item android:icon="@drawable/baseline_analytics_24"
+            android:id="@+id/analyzer"
+            android:title="Analyzer"/>
+
+        <item android:icon="@drawable/baseline_add_business_24"
+            android:id="@+id/Add_property_1"
+            android:title="Add Property"/>
+    </group>
+
+
+   <item android:title="Personal Info">
+       <menu>
+           <group android:checkableBehavior="single">
+               <item android:icon="@drawable/baseline_login_24"
+                   android:id="@+id/login_account"
+                   android:title="Login"/>
+
+               <item android:icon="@drawable/baseline_person_24"
+                   android:id="@+id/Profile_account"
+                   android:title="Profile"/>
+
+               <item android:icon="@drawable/baseline_logout_24"
+                   android:id="@+id/logout_account"
+                   android:title="Logout"/>
+           </group>
+
+       </menu>
+
+    </item>
+
+
+    <item android:title="Communications">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:icon="@drawable/baseline_share_24"
+                    android:id="@+id/share_account"
+                    android:title="Share"/>
+
+                <item android:icon="@drawable/baseline_star_rate_24"
+                    android:id="@+id/rate_us_account"
+                    android:title="Rate Us"/>
+            </group>
+        </menu>
+
+    </item>
+</menu>

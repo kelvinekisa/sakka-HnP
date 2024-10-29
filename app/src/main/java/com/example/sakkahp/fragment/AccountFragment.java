@@ -8,21 +8,29 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.Toolbar;
+
 import com.bumptech.glide.Glide;
 import com.example.sakkahp.R;
 import com.example.sakkahp.screens.AddPropertyActivity;
 import com.example.sakkahp.screens.LoginActivity;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -36,26 +44,17 @@ import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-
-public class AccountFragment extends Fragment {
+public class AccountFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener {
 
     private CircleImageView userProfile;
     private EditText userName, userEmail;
-    private AppCompatButton updateButton, signOutButton  ;
-
-    private Button addProperty;
-
-
     private static final int PICK_IMAGE_REQUEST = 1;
-
     private Uri imageUri;
-
     private String userId;
 
     // Firebase
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
-
     private StorageReference storageRef;
 
     @Override
@@ -67,18 +66,41 @@ public class AccountFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Inside onViewCreated() method
         storageRef = FirebaseStorage.getInstance().getReference();
-
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+
+        // Initialize views
+        // Navigation menu
+        DrawerLayout drawerLayout = view.findViewById(R.id.drawer_layout);
+        NavigationView navigationView = view.findViewById(R.id.nav_view);
+        Toolbar toolbar = view.findViewById(R.id.toolbar_1);
 
         userProfile = view.findViewById(R.id.profile_image);
         userName = view.findViewById(R.id.user_name);
         userEmail = view.findViewById(R.id.user_email);
-        updateButton = view.findViewById(R.id.update_button);
-        signOutButton = view.findViewById(R.id.sign_out);
-        addProperty = view.findViewById(R.id.add_property);
+        AppCompatButton updateButton = view.findViewById(R.id.update_button);
+        AppCompatButton signOutButton = view.findViewById(R.id.sign_out);
+        Button addProperty = view.findViewById(R.id.add_property);
+
+        // Setup the toolbar as the action bar
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        if (activity != null) {
+            activity.setSupportActionBar(toolbar);
+
+            // Initialize the DrawerLayout and ActionBarDrawerToggle
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                    activity,
+                    drawerLayout,
+                    toolbar,
+                    R.string.navigation_drawer_open,
+                    R.string.navigation_drawer_close
+            );
+            drawerLayout.addDrawerListener(toggle);
+            toggle.syncState();
+            navigationView.bringToFront();
+            navigationView.setNavigationItemSelectedListener(this);
+        }
 
         // Fetch user data from Firestore
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -118,27 +140,19 @@ public class AccountFragment extends Fragment {
         // Set click listener for sign out button
         signOutButton.setOnClickListener(v -> signOut());
 
-
         // Set click listener for add property button
         addProperty.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), AddPropertyActivity.class);
             startActivity(intent);
         });
-
-
-
     }
-
-
 
     private void signOut() {
         mAuth.signOut();
-
         Intent intent = new Intent(getActivity(), LoginActivity.class);
         startActivity(intent);
         // Finish the current activity to prevent the user from navigating back
         getActivity().finish();
-
     }
 
     private void chooseImage() {
@@ -158,14 +172,6 @@ public class AccountFragment extends Fragment {
     }
 
     private void updateUserData() {
-        /*String newName = userName.getText().toString().trim();
-        String newEmail = userEmail.getText().toString().trim();
-
-        // Update data in Firestore
-        DocumentReference userRef = db.collection("users").document(userId);
-        Map<String, Object> newData = new HashMap<>();
-        newData.put("name", newName);
-        newData.put("email", newEmail);*/
         Map<String, Object> newData = new HashMap<>();
         DocumentReference userRef = db.collection("users").document(userId);
 
@@ -179,9 +185,7 @@ public class AccountFragment extends Fragment {
                             newData.put("imageUrl", uri.toString());
                             // Update Firestore document with new data
                             userRef.set(newData, SetOptions.merge())
-                                    .addOnSuccessListener(aVoid -> {
-                                        Toast.makeText(getActivity(), "Profile Picture updated successfully", Toast.LENGTH_SHORT).show();
-                                    })
+                                    .addOnSuccessListener(aVoid -> Toast.makeText(getActivity(), "Profile Picture updated successfully", Toast.LENGTH_SHORT).show())
                                     .addOnFailureListener(e -> {
                                         Log.e("AccountFragment", "Error updating data", e);
                                         Toast.makeText(getActivity(), "Failed to update Profile Picture", Toast.LENGTH_SHORT).show();
@@ -195,9 +199,7 @@ public class AccountFragment extends Fragment {
         } else {
             // Update Firestore document with new data (without image)
             userRef.set(newData, SetOptions.merge())
-                    .addOnSuccessListener(aVoid -> {
-                        Toast.makeText(getActivity(), "Data updated successfully", Toast.LENGTH_SHORT).show();
-                    })
+                    .addOnSuccessListener(aVoid -> Toast.makeText(getActivity(), "Data updated successfully", Toast.LENGTH_SHORT).show())
                     .addOnFailureListener(e -> {
                         Log.e("AccountFragment", "Error updating data", e);
                         Toast.makeText(getActivity(), "Failed to update data", Toast.LENGTH_SHORT).show();
@@ -205,50 +207,10 @@ public class AccountFragment extends Fragment {
         }
     }
 
-//    // TODO: Rename parameter arguments, choose names that match
-//    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-//    private static final String ARG_PARAM1 = "param1";
-//    private static final String ARG_PARAM2 = "param2";
-//
-//    // TODO: Rename and change types of parameters
-//    private String mParam1;
-//    private String mParam2;
-//
-//    public AccountFragment() {
-//        // Required empty public constructor
-//    }
-//
-//    /**
-//     * Use this factory method to create a new instance of
-//     * this fragment using the provided parameters.
-//     *
-//     * @param param1 Parameter 1.
-//     * @param param2 Parameter 2.
-//     * @return A new instance of fragment AccountFragment.
-//     */
-//    // TODO: Rename and change types and number of parameters
-//    public static AccountFragment newInstance(String param1, String param2) {
-//        AccountFragment fragment = new AccountFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
-//
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
-//    }
-//
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_account, container, false);
-//    }
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        // Handle navigation view item clicks here.
+        // Add your navigation logic here
+        return true;
+    }
 }

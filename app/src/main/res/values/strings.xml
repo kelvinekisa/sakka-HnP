@@ -1,10 +1,10 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">sakka H&amp;P</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="user_name">User Name</string>
-    <string name="search_here">Search here...</string>
-    <string name="categories_for_you">Categories for you...</string>
+    <string name="search_here" tools:ignore="TypographyEllipsis">Search here...</string>
+    <string name="categories_for_you" tools:ignore="TypographyEllipsis">Categories for you...</string>
     <string name="home">Home</string>
     <string name="ImageCardForFlat">TODO</string>
     <string name="flats">Flats</string>
@@ -12,21 +12,21 @@
     <string name="best_deals_for_you">Best deals for you</string>
     <string name="todo">TODO</string>
     <string name="homeImage">TODO</string>
-    <string name="add_your_property">Add Your Property</string>
-    <string name="update_profile_picture">Update Profile Picture</string>
+    <string name="add_your_property">Add Property</string>
+    <string name="update_profile_picture">Add Profile</string>
     <string name="email">Email</string>
     <string name="name">Name</string>
     <string name="sign_out">Sign Out</string>
     <string name="back_button_to_go_back">Back Button to go back</string>
     <string name="add_your_property1">Add Your Property</string>
-    <string name="enter_property_location">Enter Property Location</string>
-    <string name="enter_type_example_sell_or_rent">Enter Type, example Sell or rent</string>
-    <string name="enter_description_of_property">Enter Description of Property</string>
-    <string name="enter_title_for_your_property">Enter Title For Your Property</string>
-    <string name="enter_owner_name">Enter Owner Name</string>
-    <string name="enter_contact_no">Enter Contact no.</string>
-    <string name="enter_price">Enter Price</string>
-    <string name="enter_category_ex_home_villas_flats">Enter Category. Ex:- Home, Villas,Flats</string>
+    <string name="enter_property_location">Address</string>
+    <string name="enter_type_example_sell_or_rent">Sell/ Rent</string>
+    <string name="enter_description_of_property">Description of Property</string>
+    <string name="enter_title_for_your_property">Property Title</string>
+    <string name="enter_owner_name">Name</string>
+    <string name="enter_contact_no">Phone no.</string>
+    <string name="enter_price">Price</string>
+    <string name="enter_category_ex_home_villas_flats">Category i.e Flats</string>
     <string name="add_image">Add Image</string>
     <string name="add_property">Add Property</string>
     <string name="go_back">go_back</string>
@@ -52,5 +52,29 @@
     <string name="property_price">property_price</string>
     <string name="don_t_have_an_account_create_account">Don\'t have an account ? Create Account</string>
     <string name="_2_bedrooms_apartment">2 bedrooms Apartment</string>
+    <string name="welcome_to_our_detail">Welcome to our charming 2-bedroom apartment, nestled in a vibrant urban neighborhood. This cozy yet spacious unit offers the perfect blend of comfort and convenience. As you step inside, you\'re greeted by an inviting living space adorned with modern décor and ample natural light filtering through large windows.</string>
+    <string name="description">Description :-</string>
+    <string name="back_button_to_go_back_details">Back Button to go back</string>
+    <string name="_200">$200</string>
+    <string name="sell">Sell</string>
+    <string name="location_detail">XX, XXXXXX, XXXXXX</string>
+    <string name="_no_bedrooms_">2 Bedrooms Apartment</string>
+    <string name="contact_details">Contact Details :-</string>
+    <string name="call_owner">Call Owner</string>
+    <string name="book_property">Book Property</string>
+    <string name="owner_name">Owner Name:- Mr.John Dae</string>
+    <string name="phone_no_91_852475935" tools:ignore="TypographyDashes">Phone No:– +91-852475935</string>
+    <string name="favorites_detail">favorites</string>
+    <string name="back_button_listing">Back Button to go back</string>
+    <string name="add_property_page">Add property</string>
+    <string name="saddka_h_p_add_property">Sakka House &amp;Property</string>
+    <string name="fill_all_fields">Fill All Fields</string>
+    <string name="sakka_house_property"><![CDATA[Sakka House & Property]]></string>
+
+    // navigation menu
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="authorised_agent">Authorised Agent</string>
+    <string name="agent_name">Name</string>
 
 </resources>

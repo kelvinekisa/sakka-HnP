@@ -48,6 +48,8 @@ dependencies {
     implementation(libs.picasso)
     implementation(libs.firebase.storage)
     implementation(libs.firebase.database)
+    implementation(libs.swiperefreshlayout)
+    implementation(libs.recyclerview)
     annotationProcessor(libs.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
@@ -55,4 +57,8 @@ dependencies {
 
     implementation(libs.lottie)
     implementation(libs.circleimageview)
+
+    implementation(libs.firebase.firestore.v2460)
+
+
 }
